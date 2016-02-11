@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24627.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discriminated", "Discriminated\Discriminated.csproj", "{F055217C-2DBC-45CF-8235-DD0B4F866C82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discriminated.Tests", "Discriminated.Tests\Discriminated.Tests.csproj", "{2F7352DB-C757-4E04-830B-21CB1BE04158}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F055217C-2DBC-45CF-8235-DD0B4F866C82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F055217C-2DBC-45CF-8235-DD0B4F866C82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F055217C-2DBC-45CF-8235-DD0B4F866C82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F055217C-2DBC-45CF-8235-DD0B4F866C82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F7352DB-C757-4E04-830B-21CB1BE04158}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F7352DB-C757-4E04-830B-21CB1BE04158}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F7352DB-C757-4E04-830B-21CB1BE04158}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F7352DB-C757-4E04-830B-21CB1BE04158}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
