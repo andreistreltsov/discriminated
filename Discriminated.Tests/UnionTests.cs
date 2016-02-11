@@ -68,6 +68,13 @@ namespace Discriminated.Tests
                 Assert.That(u1 == u2, Is.True, "Instances with the same value are not equal.");
             }
 
+            [Test]
+            public void InstanceNotEqualToNull()
+            {
+                var u1 = new Union<int, string>(1);
+
+                Assert.That(u1 != null, Is.True, "Instance should not be equal to null.");
+            }
         }
     }
 

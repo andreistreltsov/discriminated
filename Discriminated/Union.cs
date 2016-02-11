@@ -37,13 +37,12 @@ namespace Discriminated
 
         public static bool operator ==(Union<T1,T2> a, Union<T1,T2> b)
         {
-            if (a.tag != b.tag) return false;
-            switch (a.tag)
-            {
-                case 1: return a.case1.Equals(b.case1);
-                case 2: return a.case2.Equals(b.case2);
-                default: throw new InvalidOperationException();
-            }
+            return a.Equals(b);
+        }
+
+        public static bool operator !=(Union<T1,T2> a, Union<T1,T2> b)
+        {
+            return !(a == b);
         }
 
         public override bool Equals(object obj)
@@ -51,14 +50,23 @@ namespace Discriminated
             if (obj == null) return false;
 
             var other = obj as Union<T1, T2>;
+
             if (other == null) return false;
 
-            return this == other;
+            if (this.tag != other.tag) return false;
+
+            switch (this.tag)
+            {
+                case 1: return this.case1.Equals(other.case1);
+                case 2: return this.case2.Equals(other.case2);
+                default: throw new InvalidOperationException();
+            }
         }
 
-        public static bool operator !=(Union<T1,T2> a, Union<T1,T2> b)
+        public override int GetHashCode()
         {
-            return !(a == b);
+            return base.GetHashCode();
         }
+
     }
 }
