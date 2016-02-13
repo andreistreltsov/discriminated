@@ -70,11 +70,50 @@ namespace Discriminated.Tests
             }
 
             [Test]
+            public void TwoInstancesNotEqualIfUnderlyingTypesDifferent()
+            {
+                var u1 = new Union<int, object>(1);
+                var u2 = new Union<int, object>((object)1);
+
+                Assert.That(u1 == u2, Is.False, "Instances with different type cases are equal.");
+            }
+
+            [Test]
             public void InstanceNotEqualToNull()
             {
                 var u1 = new Union<int, string>(1);
 
                 Assert.That(u1 != null, Is.True, "Instance should not be equal to null.");
+            }
+        }
+
+        public class GetHashCodeTests
+        {
+            [Test]
+            public void EqualInstancesHaveEqualHashCode()
+            {
+                var u1 = new Union<int, string>(1);
+                var u2 = new Union<int, string>(1);
+
+                Assert.That(u1.GetHashCode(), Is.EqualTo(u2.GetHashCode()), "Equal instances did not have the same hash code.");
+            }
+
+            [Test]
+            public void NonEqualInstancesHaveDifferentHashCodes()
+            {
+                var u1 = new Union<int, string>(1);
+                var u2 = new Union<int, string>("one");
+
+                Assert.That(u1.GetHashCode(), Is.Not.EqualTo(u2.GetHashCode()), "Non-equal instances had the same hash code.");
+            }
+
+            [Test]
+            public void DifferentCasesHaveDifferentHashCodes()
+            {
+                var u1 = new Union<int, object>(1);
+                var u2 = new Union<int, object>((object)1);
+
+                Assert.That(u1.GetHashCode(), Is.Not.EqualTo(u2.GetHashCode()), "Non-equal instances had the same hash code.");
             }
         }
     }

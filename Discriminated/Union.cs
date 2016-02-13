@@ -56,18 +56,23 @@ namespace Discriminated
 
             if (this.tag != other.tag) return false;
 
-            switch (this.tag)
+            return Case(this).Equals(Case(other));
+        }
+
+        private static object Case(Union<T1,T2> u)
+        {
+            switch (u.tag)
             {
-                case 1: return this.case1.Equals(other.case1);
-                case 2: return this.case2.Equals(other.case2);
+                case 1: return u.case1;
+                case 2: return u.case2;
                 default: throw new InvalidOperationException();
             }
         }
 
         public override int GetHashCode()
         {
-            return base.GetHashCode();
+            return 17 * this.tag + Case(this).GetHashCode();
         }
-
     }
 }
+
