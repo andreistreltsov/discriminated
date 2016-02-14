@@ -38,4 +38,8 @@ Thumbs.db
 *.Resharper
 
 #dotCover
-*.dotCover
+*.dotCover*
+
+*generated.cs
+node_modules/
+

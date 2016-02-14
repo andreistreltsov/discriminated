@@ -1,0 +1,19 @@
+{
+  "name": "discriminated",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Andrei Streltsov <andrei@astreltsov.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "fs": "0.0.2",
+    "gulp": "^3.9.1",
+    "gulp-exec": "^2.1.2",
+    "gulp-msbuild": "^0.2.21",
+    "gulp-remove-files": "0.0.3",
+    "run-sequence": "^1.1.5"
+  }
+}

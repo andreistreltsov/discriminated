@@ -8,6 +8,7 @@ using System.Text.RegularExpressions;
 using System.Linq;
 using System.Collections.Generic;
 using System;
+using System.Text;
 
 namespace Discriminated.Generator
 {
@@ -15,12 +16,17 @@ namespace Discriminated.Generator
     {
         static void Main(string[] args)
         {
-            var numOfImplementedCases = NumOfImplementedCases(ReadSource());
+            if (args.Length < 1) throw new InvalidOperationException("Invalid usage");
+
+            var sourceDirPath = args[0];
+            var sourceFilePath = Path.Combine(sourceDirPath, "Union.cs");
+
+            var numOfImplementedCases = NumOfImplementedCases(ReadSource(sourceFilePath));
             for (int currMaxCase = numOfImplementedCases-1; currMaxCase >= 2; currMaxCase--)
             {
                 WriteGeneratedClassToFile(
-                    DropExtraCasesFromSource(currMaxCase, numOfImplementedCases, ReadSource()), 
-                    string.Format("Union{0}.generated.cs", currMaxCase));
+                    DropExtraCasesFromSource(currMaxCase, numOfImplementedCases, ReadSource(sourceFilePath)), 
+                    Path.Combine(sourceDirPath, string.Format("Union{0}.generated.cs", currMaxCase)));
             }
         }
 
@@ -33,9 +39,9 @@ namespace Discriminated.Generator
                 .Max();
         }
 
-        static string ReadSource()
+        static string ReadSource(string path)
         {
-            return File.ReadAllText("Union.cs");
+            return File.ReadAllText(path);
         }
 
         static void WriteGeneratedClassToFile(string content, string filename)
@@ -51,8 +57,6 @@ namespace Discriminated.Generator
                 .Range(maxCaseToLeave + 1, maxCaseToRemove - maxCaseToLeave)
                 .Select(x => new[] { string.Format("T{0}", x), string.Format("case{0}", x) })
                 .SelectMany(x => x).ToList();
-
-            Console.WriteLine(linesToRemove);
 
             return string.Join(Environment.NewLine,
                 source.Split(new[] { '\r', '\n' })
