@@ -13,12 +13,12 @@ An implementation of a `discriminated union` data structure with pattern matchin
         items.ForEach(item => item.Match(
             x => Console.WriteLine("the number is " + x),
 		    x => Console.WriteLine("the string is " + x)
-		))
+	));
 
 ## Building
 
 `$ gulp build`
 
-First it generates union classes with 2..N cases, where N is the number of type parameters implemented in Union.cs.
+1. generates union classes with 2..N cases, where N is the number of type parameters implemented in Union.cs.
 
-discriminated.dll is then compiled from generated code.
+2. discriminated.dll is compiled from generated code.
