@@ -115,7 +115,7 @@ namespace Discriminated
                 > instanceB
             )
         {
-            if (instanceA == null) return instanceB == null;
+            if (ReferenceEquals(instanceA, null)) return ReferenceEquals(instanceB, null);
 
             return instanceA.Equals(instanceB);
         }
