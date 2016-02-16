@@ -7,6 +7,7 @@ using System;
 
 namespace Discriminated
 {
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Design", "CA1005:AvoidExcessiveParametersOnGenericTypes", Justification = "Multiple type parameters are necessary.")]
     public class Union<T1, 
         T2,
         T3,
@@ -43,6 +44,14 @@ namespace Discriminated
             Func<T7, TResult> case7Handler
             )
         {
+            if (case1Handler == null) throw new ArgumentNullException("case1Handler");
+            if (case2Handler == null) throw new ArgumentNullException("case2Handler");
+            if (case3Handler == null) throw new ArgumentNullException("case3Handler");
+            if (case4Handler == null) throw new ArgumentNullException("case4Handler");
+            if (case5Handler == null) throw new ArgumentNullException("case5Handler");
+            if (case6Handler == null) throw new ArgumentNullException("case6Handler");
+            if (case7Handler == null) throw new ArgumentNullException("case7Handler");
+
             switch (tag)
             {
                 case 1: return case1Handler(case1);
@@ -66,6 +75,14 @@ namespace Discriminated
             Action<T7> case7Handler
             )
         {
+            if (case1Handler == null) throw new ArgumentNullException("case1Handler");
+            if (case2Handler == null) throw new ArgumentNullException("case2Handler");
+            if (case3Handler == null) throw new ArgumentNullException("case3Handler");
+            if (case4Handler == null) throw new ArgumentNullException("case4Handler");
+            if (case5Handler == null) throw new ArgumentNullException("case5Handler");
+            if (case6Handler == null) throw new ArgumentNullException("case6Handler");
+            if (case7Handler == null) throw new ArgumentNullException("case7Handler");
+
             switch (tag)
             {
                 case 1: case1Handler(case1); break;
@@ -87,7 +104,7 @@ namespace Discriminated
                 T5,
                 T6,
                 T7
-                > a, 
+                > instanceA, 
             Union<T1,
                 T2,
                 T3,
@@ -95,10 +112,12 @@ namespace Discriminated
                 T5,
                 T6,
                 T7
-                > b
+                > instanceB
             )
         {
-            return a.Equals(b);
+            if (instanceA == null) return instanceB == null;
+
+            return instanceA.Equals(instanceB);
         }
 
         public static bool operator !=(
@@ -109,7 +128,7 @@ namespace Discriminated
             T5,
             T6,
             T7
-            > a, 
+            > instanceA, 
             Union<T1,
             T2,
             T3,
@@ -117,9 +136,9 @@ namespace Discriminated
             T5,
             T6,
             T7
-            > b)
+            > instanceB)
         {
-            return !(a == b);
+            return !(instanceA == instanceB);
         }
 
         public override bool Equals(object obj)
