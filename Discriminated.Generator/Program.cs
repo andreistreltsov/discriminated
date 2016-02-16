@@ -6,9 +6,7 @@
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Linq;
-using System.Collections.Generic;
 using System;
-using System.Text;
 
 namespace Discriminated.Generator
 {
@@ -21,16 +19,16 @@ namespace Discriminated.Generator
             var sourceDirPath = args[0];
             var sourceFilePath = Path.Combine(sourceDirPath, "Union.cs");
 
-            var numOfImplementedCases = NumOfImplementedCases(ReadSource(sourceFilePath));
+            var numOfImplementedCases = NumOfTypeParameters(ReadSource(sourceFilePath));
             for (int currMaxCase = numOfImplementedCases-1; currMaxCase >= 2; currMaxCase--)
             {
                 WriteGeneratedClassToFile(
-                    DropExtraCasesFromSource(currMaxCase, numOfImplementedCases, ReadSource(sourceFilePath)), 
+                    RemoveExtraTypeParameters(currMaxCase, numOfImplementedCases, ReadSource(sourceFilePath)), 
                     Path.Combine(sourceDirPath, string.Format("Union{0}.generated.cs", currMaxCase)));
             }
         }
 
-        static int NumOfImplementedCases(string source)
+        static int NumOfTypeParameters(string source)
         {
             return Regex.Matches(source, "T\\d+")
                 .Cast<Match>().ToList()
@@ -49,9 +47,9 @@ namespace Discriminated.Generator
             File.WriteAllText(filename, content);
         }
 
-        static string DropExtraCasesFromSource(int maxCaseToLeave, int maxCaseToRemove, string source)
+        static string RemoveExtraTypeParameters(int maxCaseToLeave, int maxCaseToRemove, string source)
         {
-            string linesToDropComma = string.Format("T{0}", maxCaseToLeave);
+            var linesToTrimComma = new[] { string.Format("T{0}", maxCaseToLeave) };
 
             var linesToRemove = Enumerable
                 .Range(maxCaseToLeave + 1, maxCaseToRemove - maxCaseToLeave)
@@ -59,11 +57,12 @@ namespace Discriminated.Generator
                 .SelectMany(x => x).ToList();
 
             return string.Join(Environment.NewLine,
-                source.Split(new[] { '\r', '\n' })
+                source
+                .Split(new[] { '\r', '\n' })
                 .ToList()
                 .Select(sourceLine => {
-                    if (linesToRemove.Any(p => Regex.IsMatch(sourceLine, p))) return string.Empty;
-                    if (Regex.IsMatch(sourceLine, linesToDropComma)) return sourceLine.TrimEnd(',');
+                    if (linesToRemove.Any(pattern => Regex.IsMatch(sourceLine, pattern))) return string.Empty;
+                    if (linesToTrimComma.Any(pattern => Regex.IsMatch(sourceLine, pattern))) return sourceLine.TrimEnd(',');
                     return sourceLine;
                 }));
         }
