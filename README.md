@@ -18,7 +18,3 @@ An implementation of a `discriminated union` data structure with pattern matchin
 ## Building
 
 `$ gulp build`
-
-1. generates union classes with 2..N cases, where N is the number of type parameters implemented in Union.cs.
-
-2. discriminated.dll is compiled from generated code.
