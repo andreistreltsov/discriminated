@@ -43,3 +43,4 @@ Thumbs.db
 *generated.cs
 node_modules/
 
+*.nupkg
