@@ -1,4 +1,4 @@
-An implementation of a `discriminated union` data structure with pattern matching support.
+An implementation of a `Discriminated Union` data structure with pattern matching support.
 
 ## Example
 
@@ -15,6 +15,14 @@ An implementation of a `discriminated union` data structure with pattern matchin
 			x => Console.WriteLine("the string is " + x)
 	));
 
+## Installation
+
+The library is available on NuGet. 
+
+To install, use Visual Studio mackage manager or run `PM> Install-Package discriminated`.
+
 ## Building
 
-`$ gulp build`
+1. install *node*
+2. run `$ npm install`
+3. run `$ gulp build`
