@@ -12,7 +12,7 @@
     <description>An implementation of a discriminated union data structure with pattern matching support.</description>
     <releaseNotes>First release.</releaseNotes>
     <copyright>Copyright(c) 2016 Andrei Streltsov</copyright>
-    <tags></tags>
+    <tags>discriminated union functional data structure c#</tags>
     <dependencies>
     </dependencies>
   </metadata>
