@@ -1,4 +1,4 @@
-An implementation of a `Discriminated Union` data structure with pattern matching support.
+An implementation of a *Discriminated Union* data structure with pattern matching support.
 
 ## Example
 
@@ -19,7 +19,7 @@ An implementation of a `Discriminated Union` data structure with pattern matchin
 
 The library is available on NuGet. 
 
-To install, use Visual Studio mackage manager or run `PM> Install-Package discriminated`.
+To install use Visual Studio mackage manager or run `PM> Install-Package discriminated`.
 
 ## Building
 
