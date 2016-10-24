@@ -187,6 +187,36 @@ namespace Discriminated
         {
             return 17 * this.tag + Case(this).GetHashCode();
         }
+
+        public string CaseToString()
+        {
+            switch (tag)
+            {
+                case 1: return case1.ToString();
+                case 2: return case2.ToString();
+                case 3: return case3.ToString();
+                case 4: return case4.ToString();
+                case 5: return case5.ToString();
+                case 6: return case6.ToString();
+                case 7: return case7.ToString();
+                default: throw new InvalidOperationException();
+            }
+        }
+
+        public Type CaseType()
+        {
+            switch (tag)
+            {
+                case 1: return case1.GetType();
+                case 2: return case2.GetType();
+                case 3: return case3.GetType();
+                case 4: return case4.GetType();
+                case 5: return case5.GetType();
+                case 6: return case6.GetType();
+                case 7: return case7.GetType();
+                default: throw new InvalidOperationException();
+            }
+        }
     }
 }
 
