@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="None.cs" />
+    <Compile Include="Option.cs" />
     <Compile Include="Union*.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
