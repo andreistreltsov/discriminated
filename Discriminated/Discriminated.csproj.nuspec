@@ -3,16 +3,16 @@
   <metadata>
     <id>discriminated</id>
     <title>Discriminated</title>
-    <version>0.3.0</version>
+    <version>0.3.1</version>
     <authors>Andrei Streltsov</authors>
     <owners>Andrei Streltsov</owners>
     <licenseUrl>https://raw.githubusercontent.com/andreistreltsov/discriminated/master/LICENSE.txt</licenseUrl>
     <projectUrl>https://github.com/andreistreltsov/discriminated</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>An implementation of a discriminated union data structure with pattern matching support.</description>
-    <releaseNotes>Added the Option type.</releaseNotes>
+    <releaseNotes>Added Option.ValueOrDefault</releaseNotes>
     <copyright>Copyright(c) 2016 Andrei Streltsov</copyright>
-    <tags>discriminated union functional data structure c#</tags>
+    <tags>discriminated union functional data-structure c# pattern-matching</tags>
     <dependencies>
     </dependencies>
   </metadata>

@@ -18,5 +18,10 @@ namespace Discriminated
         }
 
         public static Option<TValue> None { get { return new Option<TValue>(); } }
+
+        public TValue ValueOrDefault()
+        {
+            return Match(some => some, none => default(TValue));
+        }
     }
 }
