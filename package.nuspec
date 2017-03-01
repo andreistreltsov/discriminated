@@ -3,17 +3,25 @@
   <metadata>
     <id>discriminated</id>
     <title>Discriminated</title>
-    <version>0.3.1</version>
+    <version>0.3.2</version>
     <authors>Andrei Streltsov</authors>
     <owners>Andrei Streltsov</owners>
     <licenseUrl>https://raw.githubusercontent.com/andreistreltsov/discriminated/master/LICENSE.txt</licenseUrl>
     <projectUrl>https://github.com/andreistreltsov/discriminated</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>An implementation of a discriminated union data structure with pattern matching support.</description>
-    <releaseNotes>Added Option.ValueOrDefault</releaseNotes>
+    <releaseNotes>Supporting .NET 4.0 to 4.5.2</releaseNotes>
     <copyright>Copyright(c) 2016 Andrei Streltsov</copyright>
     <tags>discriminated union functional data-structure c# pattern-matching</tags>
     <dependencies>
     </dependencies>
   </metadata>
+
+  <files>
+    <file src="src\Discriminated\bin\net35\Discriminated.dll" target="lib\net35\Discriminated.dll" />
+    <file src="src\Discriminated\bin\net40\Discriminated.dll" target="lib\net40\Discriminated.dll" />
+    <file src="src\Discriminated\bin\net45\Discriminated.dll" target="lib\net45\Discriminated.dll" />
+    <file src="src\Discriminated\bin\net452\Discriminated.dll" target="lib\net452\Discriminated.dll" />
+  </files>
+
 </package>

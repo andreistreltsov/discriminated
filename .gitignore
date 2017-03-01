@@ -40,7 +40,6 @@ Thumbs.db
 #dotCover
 *.dotCover*
 
-*generated.cs
 node_modules/
 
 *.nupkg
