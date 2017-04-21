@@ -26,7 +26,7 @@ To install use Visual Studio mackage manager or run `PM> Install-Package discrim
 
 ## Learn More 
 
-Here's a post that explains [using this library to implement discriminated unions](http://astreltsov.com/software-development/discriminated-unions-in-c-sharp-dot-net.html).
+Here's a post that explains [how to implement discriminated unions using this library](http://astreltsov.com/software-development/discriminated-unions-in-c-sharp-dot-net.html).
 
 ## Building
 
