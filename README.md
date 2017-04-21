@@ -1,5 +1,6 @@
 An implementation of a *Discriminated Union* data structure with pattern matching support.
 
+
 ## Example
 
 ```c#
@@ -23,8 +24,13 @@ The library is available on NuGet.
 
 To install use Visual Studio mackage manager or run `PM> Install-Package discriminated`.
 
+## Learn More 
+
+Here's a post that explains [using this library to implement discriminated unions](http://astreltsov.com/software-development/discriminated-unions-in-c-sharp-dot-net.html).
+
 ## Building
 
 1. install *node*
 2. run `$ npm install`
 3. run `$ gulp build`
+
